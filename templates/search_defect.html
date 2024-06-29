@@ -1,0 +1,18 @@
+<!-- search_defect.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Defect</title>
+</head>
+<body>
+    <h1>Search Defect</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <form action="/search_defect" method="POST">
+        <label for="imei">IMEI:</label>
+        <input type="text" name="imei" id="imei" required>
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- all_defects.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Defects</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>All Defects</h1>
+    <table>
+        <tr>
+            <th>IMEI</th>
+            <th>Model</th>
+            <th>Defect Type</th>
+            <th>Line</th>
+            <th>Entry Time</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        {% for defect in defects %}
+        <tr>
+            <td>{{ defect.imei }}</td>
+            <td>{{ defect.model }}</td>
+            <td>{{ defect.defect_type }}</td>
+            <td>{{ defect.line }}</td>
+            <td>{{ defect.entry_time }}</td>
+            <td>
+                {% if defect.image %}
+                <img src="{{ url_for('static', filename='images/' + defect.image) }}" alt="Defect Image" width="100">
+                {% else %}
+                No Image
+                {% endif %}
+            </td>
+            <td>
+                <a href="{{ url_for('delete_defect', id=str(defect._id)) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

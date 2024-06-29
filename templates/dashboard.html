@@ -1,0 +1,19 @@
+<!-- dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Production Defects Dashboard</title>
+</head>
+<body>
+    <h1>Production Defects Dashboard</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
+    <br>
+    <a href="{{ url_for('add_defect') }}">Add Defect</a>
+    <br>
+    <a href="{{ url_for('all_defects') }}">View All Defects</a>
+    <br>
+    <a href="{{ url_for('search_defect') }}">Search Defect</a>
+</body>
+</html>

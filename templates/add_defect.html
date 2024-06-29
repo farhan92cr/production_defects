@@ -1,0 +1,89 @@
+<!-- add_defect.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Defect</title>
+</head>
+<body>
+    <h1>Add Defect</h1>
+    <form action="/add_defect" method="POST" enctype="multipart/form-data">
+        <label for="model">Model:</label>
+        <select name="model" id="model" onchange="checkOtherModel()">
+            <option value="X6528">X6528</option>
+            <option value="X6526">X6526</option>
+            <option value="X6836">X6836</option>
+            <option value="X6731B">X6731B</option>
+            <option value="X678B">X678B</option>
+            <option value="X6833B">X6833B</option>
+            <option value="X6516">X6516</option>
+            <option value="X6525B">X6525B</option>
+            <option value="X6525">X6525</option>
+            <option value="X6850">X6850</option>
+            <option value="X6853">X6853</option>
+            <option value="V200">V200</option>
+            <option value="V210">V210</option>
+            <option value="V112">V112</option>
+            <option value="V2160">V2160</option>
+            <option value="V30">V30</option>
+            <option value="V30RS">V30RS</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="other_model" id="other_model" placeholder="Enter model manually" style="display: none;">
+
+        <label for="defect_type">Defect Type:</label>
+        <select name="defect_type" id="defect_type" onchange="checkOtherDefect()">
+            <option value="S.N not complete">S.N not complete</option>
+            <option value="K.E.N.E">K.E.N.E</option>
+            <option value="SIM TRAY MISS">SIM TRAY MISS</option>
+            <option value="Phone Code">Phone Code</option>
+            <option value="Factory Reset">Factory Reset</option>
+            <option value="OOBE">OOBE</option>
+            <option value="Software issue">Software issue</option>
+            <option value="MMI Flag">MMI Flag</option>
+            <option value="ATA Flag">ATA Flag</option>
+            <option value="Battery">Battery</option>
+            <option value="Protector">Protector</option>
+            <option value="Apperence">Apperence</option>
+            <option value="oqc defect/speaker or mic fail/volume key etc">oqc defect/speaker or mic fail/volume key etc</option>
+            <option value="SN Front site incomplete">SN Front site incomplete</option>
+            <option value="Sale service Activation">Sale service Activation</option>
+            <option value="Dead device">Dead device</option>
+            <option value="Worng/SN/IMEI">Worng/SN/IMEI</option>
+            <option value="other">Other</option>
+        </select>
+        <input type="text" name="other_defect" id="other_defect" placeholder="Enter defect type manually" style="display: none;">
+
+        <label for="line">Line:</label>
+        <select name="line" id="line">
+            <option value="P01">P01</option>
+            <option value="P02">P02</option>
+            <option value="P03">P03</option>
+            <option value="P04">P04</option>
+        </select>
+
+        <label for="imei">IMEI:</label>
+        <input type="text" name="imei" id="imei">
+
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image">
+
+        <button type="submit">Add Defect</button>
+    </form>
+
+    <script>
+        function checkOtherModel() {
+            var model = document.getElementById("model").value;
+            var otherModelInput = document.getElementById("other_model");
+            otherModelInput.style.display = model === "other" ? "block" : "none";
+        }
+
+        function checkOtherDefect() {
+            var defectType = document.getElementById("defect_type").value;
+            var otherDefectInput = document.getElementById("other_defect");
+            otherDefectInput.style.display = defectType === "other" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
